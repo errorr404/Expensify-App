@@ -22,14 +22,25 @@ const HelpPage = () => (
     This is from my HelpPage component
   </div>
 );
+
+// component for displaying the 404 error
+const NotFoundPage = () => (
+  <div>
+    404!
+  </div>
+);
 const routes = (
    <BrowserRouter>
-     <div>
+     {/* to display the 404 error we have to choose switch */}
+     <Switch>
        <Route path="/" component={ExpenseDashboardPage} exact={true}/>
        <Route path="/create" component={AddExpensePage}  />
        <Route path="/edit" component={EditExpensePage} />
        <Route path="/help" component={HelpPage} />
-     </div>
+        {/* here the path is optional */}
+       <Route component={NotFoundPage}/>
+
+     </Switch>
    </BrowserRouter>
 );
 
